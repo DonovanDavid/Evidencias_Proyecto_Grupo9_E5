@@ -1,0 +1,163 @@
+﻿@page
+@model Taller.App.Front.Pages.GestionPropietarioModel
+@{
+}
+<h4 id="idTitulo">Gestión Propietario</h4>
+ <p>
+ </p>
+ <div class="text-center">
+ <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="">Agregar Nuevo</button>
+</div>
+<div class="d-flex justify-content-end">
+<nav class="navbar navbar-light bg-light">
+ <form method="post" class="form-inline" style="display:flex;">
+    <input name="textBuscar"class="form-control mr-sm-2" type="search" asp-for="@Model.textBuscar" placeholder="Búsqueda Propietario" aria-label="Ingrese Acá">
+    <button class="btn btn-outline-success my-2 my-sm-0" type="submit" asp-page-handler="Buscar">Filtrar</button>
+  </form>
+</nav>
+</div>
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Id</th>
+      <th scope="col">Nombre</th>
+      <th scope="col">Numero de Teléfono</th>
+      <th scope="col">Fecha de Nacimiento</th>
+      <th scope="col">Ciudad</th>
+      <th scope="col">Correo Electrónico</th>
+      <th scope="col">Acciones</th>
+    </tr>
+  </thead>
+  <tbody>
+  @if(Model.listaPropietar != null){
+ @foreach (var m in Model.listaPropietar){
+
+    <tr>
+      
+      <td>@m.PropietarioId</td>
+      <td>@m.nombre</td>
+      <td>@m.telefono</td>
+      <td>@m.fechaNacimiento</td>
+      <td>@m.ciudad</td>
+      <td>@m.correo</td>
+
+      <td>@if(@Model.propietarioActual !=null && @Model.propietarioActual.PropietarioId!="")
+      {
+      <a class="bi bi-pencil-square class-icon-edit" asp-area="" asp-route-id="@m.PropietarioId" asp-page="/Propietarios/EditarPropietario"></a>
+      <button type="submit" asp-route-id="@m.PropietarioId" class="bi bi-trash3-fill class-icon-delete" title="eliminar"></button>
+      }else
+      {
+      <form class="px-12" method="POST">
+      <a class="bi bi-pencil-square class-icon-edit" asp-area="" asp-route-id="@m.PropietarioId" asp-page="/Propietarios/EditarPropietario"></a>
+      <button type="submit" asp-route-id="@m.PropietarioId" asp-page-handler="Del" class="bi bi-trash3-fill class-icon-delete" title="eliminar"></button>
+      </form>
+
+      }
+
+      </td>
+    </tr>}
+  }
+   </tbody>
+</table>
+ <p>
+ <p>
+<h5 id="idTitulo">Asociar Vehículo</h5>
+ <p>
+ </p>
+ <div class="text-center">
+ <a class="nav-link text-dark" asp-area="" asp-page="/Vehiculos/GestionVehiculo">Asociar Vehículo</a>
+</div>
+
+
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Formulario Inscripción - Nuevo Propietario</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <form class="px-12" method="POST">
+      <div class="modal-body">
+      
+      <div class="row">
+        <div class="mb-3 col-6">
+        <label for="recipient-name" class="col-form-label">Id:</label>
+        <input type="text" class="form-control" placeholder="Ingrese su Identificación" aria-label="Username" aria-describedby="basic-addon1" asp-for="@Model.propietarioActual.PropietarioId" name="PropietarioId">
+        </div>
+        <div class="mb-3 col-6">
+        <label for="recipient-name" class="col-form-label">Nombre</label>
+        <input type="text" class="form-control" placeholder="Ingrese su Nombre" aria-label="Username" aria-describedby="basic-addon1"asp-for="@Model.propietarioActual.nombre" name="nombre">
+        </div>
+      </div>
+      <div class="row">
+      <div class="mb-3 col-6">
+        <label for="recipient-name" class="col-form-label">Teléfono</label>
+        <input type="text" class="form-control" placeholder="Ingrese Número de Teléfono" aria-label="Username" aria-describedby="basic-addon1" asp-for="@Model.propietarioActual.telefono" name="telefono">
+        </div>
+       <div class="mb-3 col-6">
+       <label for="recipient-name" class="col-form-label">Fecha de Nacimiento</label>
+       <input type="date" class="form-control" placeholder="" aria-label="Username" aria-describedby="basic-addon1" asp-for="@Model.propietarioActual.fechaNacimiento" name="fechaNacimiento">
+      </div>
+    </div>
+    <div class="row">
+      <div class="mb-3 col-6">
+       <label for="recipient-name" class="col-form-label">Ciudad Residencia</label>
+       <select class="form-select" id="inputGroupSelect01" asp-for="@Model.propietarioActual.ciudad" name="ciudad">
+        <option selected>Elegir...</option>
+          <option value="Armenia">Armenia</option>
+          <option value="Barranquilla">Barranquilla</option>
+          <option value="Bogotá">Bogotá</option>
+          <option value="Bucaramanga">Bucaramanga</option>
+          <option value="Cali">Cali</option>
+          <option value="Cartagena">Cartagena</option>
+          <option value="Cúcuta">Cúcuta</option>
+          <option value="Florencia">Florencia</option>
+          <option value="Ibagué">Ibagué</option>
+          <option value="Leticia">Leticia</option>
+          <option value="Manizales">Manizales</option>
+          <option value="Medellín">Medellín</option>
+          <option value="Mitú">Mitú</option>
+          <option value="Mocoa">Mocoa</option>
+          <option value="Montería">Montería</option>
+          <option value="Neiva">Neiva</option>
+          <option value="Pasto">Pasto</option>
+          <option value="Pereira">Pereira</option>
+          <option value="Popayán">Popayán</option>
+          <option value="Puerto Carreño">Puerto Carreño</option>
+          <option value="Puerto Inírida">Puerto Inírida</option>
+          <option value="Quibdó">Quibdó</option>
+          <option value="Riohacha">Riohacha</option>
+          <option value="San Andrés">San Andrés</option>
+          <option value="San José del Guaviare">San José del Guaviare</option>
+          <option value="Santa Marta">Santa Marta</option>
+          <option value="Sincelejo">Sincelejo</option>
+          <option value="Tunja">Tunja</option>
+          <option value="Valledupar">Valledupar</option>
+          <option value="Villavicencio">Villavicencio</option>
+          <option value="Yopal">Yopal</option>
+      </select>
+      </div>
+      <div class="mb-3 col-6">
+    <label for="recipient-name" class="col-form-label">Correo</label>
+    <input type="email" class="form-control" placeholder="Ingrese correo" aria-label="Username" aria-describedby="basic-addon1" asp-for="@Model.propietarioActual.correo" name="correo">
+    <div id="emailHelp" class="form-text">Nunca Compartas tu correo.</div>
+    </div>
+    </div>
+    <div class="row">
+    <div class="mb-3 col-12">
+    <label for="recipient-name" class="col-form-label">Contraseña</label>
+    <input type="password" class="form-control" placeholder="Ingrese nueva Contraseña" aria-label="Username" aria-describedby="basic-addon1" asp-for="@Model.propietarioActual.contrasenia" name="contrasenia">
+    </div>
+    </div>
+
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+        <button type="submit" class="btn btn-primary" asp-page-handler="Add">Registrar</button>
+        
+      </div>
+      </form>
+    </div>
+    
+  </div>
+</div>
+  

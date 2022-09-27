@@ -1,0 +1,99 @@
+﻿@page
+@model Taller.App.Front.Pages.GestionRepuestosModel
+@{
+}
+<h4 id="idTitulo">Gestión Repuestos</h4>
+ <p>
+ </p>
+ <div class="text-center">
+ <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="">Agregar Nuevo</button>
+</div>
+<div class="d-flex justify-content-end">
+<nav class="navbar navbar-light bg-light">
+  <form method="post" class="form-inline" style="display:flex;">
+    <input name="textBuscar"class="form-control mr-sm-2" type="search" asp-for="@Model.textBuscar" placeholder="Búsqueda Repuesto" aria-label="Ingrese Descripción">
+    <button class="btn btn-outline-success my-2 my-sm-0" type="submit" asp-page-handler="Buscar">Filtrar</button>
+  </form>
+</nav>
+</div>
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Repuesto Id</th>
+      <th scope="col">Descripcion</th>
+       <th scope="col">Cantidad</th>
+      <th scope="col">Precio</th>
+      <th scope="col">Acciones</th>
+    </tr>
+  </thead>
+  <tbody>
+  @if(Model.listaRepuesto != null){
+@foreach (var m in Model.listaRepuesto){
+    <tr>
+      <td>@m.RepuestoId</td>
+      <td>@m.descripcion</td>
+      <td>@m.cantidad</td>
+      <td>@m.precio</td>
+      
+      <td>
+      @if(@Model.repuestoActual !=null && @Model.repuestoActual.RepuestoId != "")
+      {
+       <a class="bi bi-pencil-square class-icon-edit" asp-area="" asp-route-id="@m.RepuestoId" asp-page="/Repuestos/EditarRepuesto"></a>
+      <button type="submit" asp-route-id="@m.RepuestoId" class="bi bi-trash3-fill class-icon-delete" title="eliminar"></button>
+      }else
+      {
+      <form class="px-12" method="POST">
+      <a class="bi bi-pencil-square class-icon-edit" asp-area="" asp-route-id="@m.RepuestoId" asp-page="/Repuestos/EditarRepuesto"></a>
+      <button type="submit" asp-route-id="@m.RepuestoId" asp-page-handler="Del" class="bi bi-trash3-fill class-icon-delete" title="eliminar"></button>
+      </form>
+      }
+
+      </td>
+    </tr>}
+}
+  </tbody>
+</table>
+
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Formulario - Ingreso Nuevo Repuesto</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <form class="px-12" method="POST">
+      <div class="modal-body">
+      
+      <div class="row">
+        <div class="mb-3 col-6">
+        <label for="recipient-name" class="col-form-label">Id Repuesto:</label>
+        <input type="text" class="form-control" placeholder="Ingrese Id Repuesto" aria-label="Username" aria-describedby="basic-addon1" asp-for="@Model.repuestoActual.RepuestoId" name="RepuestoId">
+        </div>
+        <div class="mb-3 col-6">
+        <label for="recipient-name" class="col-form-label">Descripcion</label>
+        <input type="text" class="form-control" placeholder="" aria-label="Username" aria-describedby="basic-addon1"asp-for="@Model.repuestoActual.descripcion" name="descripcion">
+        </div>
+      </div>
+      <div class="row">
+      <div class="mb-3 col-6">
+        <label for="recipient-name" class="col-form-label">Cantidad</label>
+        <input type="number" class="form-control" placeholder="Ingrese Cantidad" aria-label="Username" aria-describedby="basic-addon1" asp-for="@Model.repuestoActual.cantidad" name="cantidad">
+        </div>
+        <div class="mb-3 col-6">
+        <label for="recipient-name" class="col-form-label">Precio-M/Cte</label>
+        <input type="number" class="form-control" placeholder="Ingrese Precio" aria-label="Username" aria-describedby="basic-addon1" asp-for="@Model.repuestoActual.precio" name="precio">
+        </div>
+       
+    </div>
+    
+
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+        <button type="submit" class="btn btn-primary" asp-page-handler="Add">Registrar</button>
+        
+      </div>
+      </form>
+    </div>
+    
+  </div>
+</div>

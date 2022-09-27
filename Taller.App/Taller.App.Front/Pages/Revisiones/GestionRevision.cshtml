@@ -1,0 +1,136 @@
+﻿@page
+@model Taller.App.Front.Pages.GestionRevisionModel
+@{
+}
+<h4 id="idTitulo">Gestión Revisiones</h4>
+ <p>
+ </p>
+ <div class="text-center">
+ <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="">Agregar Nueva</button>
+</div>
+<div class="d-flex justify-content-end">
+<nav class="navbar navbar-light bg-light">
+  <form method="post" class="form-inline" style="display:flex;">
+    <input name="textBuscar"class="form-control mr-sm-2" type="search" asp-for="@Model.textBuscar" placeholder="Buscar Vehículo" aria-label="Ingrese Acá">
+    <button class="btn btn-outline-success my-2 my-sm-0" type="submit" asp-page-handler="Buscar">Filtrar</button>
+  </form>
+</div>
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Revision Id</th>
+      <th scope="col">Fecha</th>
+      <th scope="col">Hora</th>
+      <th scope="col">Mecánico Id</th>
+      <th scope="col">Placa Vehículo</th>
+      <th scope="col">Sede Revisión</th>
+      <th scope="col">Detalle Revisión</th>
+      <th scope="col">Estado</th>
+      <th scope="col">Acciones</th>
+    </tr>
+  </thead>
+  <tbody>
+@if(Model.listaRevision != null){
+@foreach (var m in Model.listaRevision){
+    <tr>
+      <td>@m.RevisionId</td>
+      <td>@m.fecharevision</td>
+      <td>@m.hora</td>
+      <td>@m.MecanicoId</td>
+      <td>@m.PlacaVehiculo</td>
+      <td>@m.SedeRevision</td>
+      <td>@m.DetalleRevision</td>
+      <td>@m.EstadoRevision</td>
+      
+      <td>
+      @if(@Model.revisionActual !=null && @Model.revisionActual.RevisionId != "")
+      {
+      <a class="bi bi-pencil-square class-icon-edit" asp-area="" asp-route-id="@m.RevisionId" asp-page="/Revisiones/EditarRevision"></a>
+      <button type="submit" asp-route-id="@m.RevisionId" class="bi bi-trash3-fill class-icon-delete" title="eliminar"></button>
+      }else
+      {
+      <form class="px-12" method="POST">
+      <a class="bi bi-pencil-square class-icon-edit" asp-area="" asp-route-id="@m.RevisionId" asp-page="/Revisiones/EditarRevision"></a>
+      <button type="submit" asp-route-id="@m.RevisionId" asp-page-handler="Del" class="bi bi-trash3-fill class-icon-delete" title="eliminar"></button>
+      </form>
+      }
+
+      </td>
+    </tr>}
+}
+  </tbody>
+</table>
+
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Formulario - Ingreso Nueva Revisión Vehículo</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <form class="px-12" method="POST">
+      <div class="modal-body">
+      
+      <div class="row">
+        <div class="mb-3 col-4">
+        <label for="recipient-name" class="col-form-label">Id:</label>
+        <input type="text" class="form-control" placeholder="Ingrese Id Revision" aria-label="Username" aria-describedby="basic-addon1" asp-for="@Model.revisionActual.RevisionId" name="RevisionId">
+        </div>
+        <div class="mb-3 col-4">
+        <label for="recipient-name" class="col-form-label">Fecha Revisión</label>
+        <input type="date" class="form-control" placeholder="" aria-label="Username" aria-describedby="basic-addon1"asp-for="@Model.revisionActual.fecharevision" name="fecharevision">
+        </div>
+        <div class="mb-3 col-4">
+        <label for="recipient-name" class="col-form-label">Hora Revisión</label>
+        <input type="time" class="form-control" placeholder="Ingrese Hora" aria-label="Username" aria-describedby="basic-addon1" asp-for="@Model.revisionActual.hora" name="hora">
+        </div>
+      </div>
+      <div class="row">
+       <div class="mb-3 col-4">
+       <label for="recipient-name" class="col-form-label">Mecánico</label>
+         <select class="form-select" id="inputGroupSelect01" asp-for="@Model.revisionActual.MecanicoId" name="MecanicoId">  
+        @foreach (var m in Model.listaMecanico){ 
+        <option value="@m.MecanicoId">@m.nombre</option>
+        }
+        </select>
+        </div>
+        <div class="mb-3 col-4">
+       <label for="recipient-name" class="col-form-label">Vehículo</label>
+       <select class="form-select" id="inputGroupSelect01" asp-for="@Model.revisionActual.PlacaVehiculo" name="PlacaVehiculo">  
+        @foreach (var m in Model.listaVehiculo){ 
+        <option value="@m.PlacaVehiculo">@m.PlacaVehiculo</option>
+        }
+        </select>
+        </div>
+        <div class="mb-3 col-4">
+        <label for="recipient-name" class="col-form-label">Sede</label>
+        <select class="form-select" id="inputGroupSelect01" asp-for="@Model.revisionActual.SedeRevision" name="SedeRevision">
+        <option selected>Elegir...</option>
+       @foreach (var m in Model.listaUbicacion){ 
+        <option value="@m.UbicacionDescripcion">@m.UbicacionDescripcion</option>
+        }
+        </select>
+      </div>
+    </div>
+    <div class="row">
+    <div class="mb-3 col-6">
+        <label for="recipient-name" class="col-form-label">Estado</label>
+        <input type="text" value="Revision"class="form-control" placeholder="" aria-label="Username" aria-describedby="basic-addon1" asp-for="@Model.revisionActual.EstadoRevision" name="EstadoRevision" readonly>
+        </div>
+        <div class="mb-3 col-6">
+        <label for="recipient-name" class="col-form-label">Detalle Revisión</label>
+        <input type="text" class="form-control" placeholder="Ingrese" aria-label="Username" aria-describedby="basic-addon1" asp-for="@Model.revisionActual.DetalleRevision" name="DetalleRevision">
+        </div>
+    </div>
+    </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+        <button type="submit" class="btn btn-primary" asp-page-handler="Add">Registrar</button>
+        
+      </div>
+      </form>
+    </div>
+    
+  </div>
+</div>
+  

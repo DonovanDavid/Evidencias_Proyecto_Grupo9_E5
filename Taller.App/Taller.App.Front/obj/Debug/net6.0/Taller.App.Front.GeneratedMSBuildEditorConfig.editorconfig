@@ -1,0 +1,112 @@
+is_global = true
+build_property.TargetFramework = net6.0
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = true
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = 
+build_property.PlatformNeutralAssembly = 
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property.RootNamespace = Taller.App.Front
+build_property.RootNamespace = Taller.App.Front
+build_property.ProjectDir = C:\Users\KAKÁ\Desktop\proyecto-g9\Taller.App\Taller.App.Front\
+build_property.RazorLangVersion = 6.0
+build_property.SupportLocalizedComponentNames = 
+build_property.GenerateRazorMetadataSourceChecksumAttributes = 
+build_property.MSBuildProjectDirectory = C:\Users\KAKÁ\Desktop\proyecto-g9\Taller.App\Taller.App.Front
+build_property._RazorSourceGeneratorDebug = 
+
+[C:/Users/KAKÁ/Desktop/proyecto-g9/Taller.App/Taller.App.Front/Pages/Cuenta/Login.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ3VlbnRhXExvZ2luLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/KAKÁ/Desktop/proyecto-g9/Taller.App/Taller.App.Front/Pages/Cuenta/Registro.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ3VlbnRhXFJlZ2lzdHJvLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/KAKÁ/Desktop/proyecto-g9/Taller.App/Taller.App.Front/Pages/Error.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRXJyb3IuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/KAKÁ/Desktop/proyecto-g9/Taller.App/Taller.App.Front/Pages/GestionMecanico/EditarMecanico.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcR2VzdGlvbk1lY2FuaWNvXEVkaXRhck1lY2FuaWNvLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/KAKÁ/Desktop/proyecto-g9/Taller.App/Taller.App.Front/Pages/GestionMecanico/GestionMecanico.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcR2VzdGlvbk1lY2FuaWNvXEdlc3Rpb25NZWNhbmljby5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/KAKÁ/Desktop/proyecto-g9/Taller.App/Taller.App.Front/Pages/GestionMecanico/RegistroMecanico.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcR2VzdGlvbk1lY2FuaWNvXFJlZ2lzdHJvTWVjYW5pY28uY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/KAKÁ/Desktop/proyecto-g9/Taller.App/Taller.App.Front/Pages/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/KAKÁ/Desktop/proyecto-g9/Taller.App/Taller.App.Front/Pages/Privacy.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUHJpdmFjeS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/KAKÁ/Desktop/proyecto-g9/Taller.App/Taller.App.Front/Pages/Propietarios/EditarPropietario.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUHJvcGlldGFyaW9zXEVkaXRhclByb3BpZXRhcmlvLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/KAKÁ/Desktop/proyecto-g9/Taller.App/Taller.App.Front/Pages/Propietarios/GestionPropietario.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUHJvcGlldGFyaW9zXEdlc3Rpb25Qcm9waWV0YXJpby5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/KAKÁ/Desktop/proyecto-g9/Taller.App/Taller.App.Front/Pages/Propietarios/RegistroPropietario.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUHJvcGlldGFyaW9zXFJlZ2lzdHJvUHJvcGlldGFyaW8uY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/KAKÁ/Desktop/proyecto-g9/Taller.App/Taller.App.Front/Pages/Repuestos/EditarRepuesto.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUmVwdWVzdG9zXEVkaXRhclJlcHVlc3RvLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/KAKÁ/Desktop/proyecto-g9/Taller.App/Taller.App.Front/Pages/Repuestos/GestionRepuestos.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUmVwdWVzdG9zXEdlc3Rpb25SZXB1ZXN0b3MuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/KAKÁ/Desktop/proyecto-g9/Taller.App/Taller.App.Front/Pages/Revisiones/EditarRevision.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUmV2aXNpb25lc1xFZGl0YXJSZXZpc2lvbi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/KAKÁ/Desktop/proyecto-g9/Taller.App/Taller.App.Front/Pages/Revisiones/GestionRevision.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUmV2aXNpb25lc1xHZXN0aW9uUmV2aXNpb24uY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/KAKÁ/Desktop/proyecto-g9/Taller.App/Taller.App.Front/Pages/Sede/EditarSede.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2VkZVxFZGl0YXJTZWRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/KAKÁ/Desktop/proyecto-g9/Taller.App/Taller.App.Front/Pages/Sede/GestionSede.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2VkZVxHZXN0aW9uU2VkZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/KAKÁ/Desktop/proyecto-g9/Taller.App/Taller.App.Front/Pages/Shared/_ValidationScriptsPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/KAKÁ/Desktop/proyecto-g9/Taller.App/Taller.App.Front/Pages/Vehiculos/EditarVehiculo.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVmVoaWN1bG9zXEVkaXRhclZlaGljdWxvLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/KAKÁ/Desktop/proyecto-g9/Taller.App/Taller.App.Front/Pages/Vehiculos/GestionVehiculo.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVmVoaWN1bG9zXEdlc3Rpb25WZWhpY3Vsby5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/KAKÁ/Desktop/proyecto-g9/Taller.App/Taller.App.Front/Pages/Vehiculos/RegistroVehiculo.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVmVoaWN1bG9zXFJlZ2lzdHJvVmVoaWN1bG8uY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/KAKÁ/Desktop/proyecto-g9/Taller.App/Taller.App.Front/Pages/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/KAKÁ/Desktop/proyecto-g9/Taller.App/Taller.App.Front/Pages/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcX1ZpZXdTdGFydC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/KAKÁ/Desktop/proyecto-g9/Taller.App/Taller.App.Front/Pages/Shared/_Layout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hhcmVkXF9MYXlvdXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = b-hvx31kelq3

@@ -1,0 +1,27 @@
+html {
+  font-size: 14px;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  margin-bottom: 60px;
+}
+
+.class-icon-edit{
+  cursor: pointer;
+  color: #0a58ca;
+}
+.class-icon-delete{
+  cursor: pointer;
+  color: #eb1010;
+}

@@ -1,0 +1,41 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Inicio";
+}
+
+<div class="card clsCard" style="width: 18rem">
+    <div class="card-body">
+  <h1 id="idTituloLogin">Iniciar Sesión</h1>
+    <div id="idContenedorCampos">
+    <div style="margin-bottom: 10px">
+        <form>
+            <div class="mb-3">
+              <label for="exampleInputEmail1" class="form-label">Correo</label>
+              <input id="idusuario" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+              <div id="emailHelp" class="form-text">No compartas tu correo con alguien else.</div>
+            </div>
+            <div class="mb-3">
+              <label for="exampleInputPassword1" class="form-label">Contraseña</label>
+              <input id="idclave" type="password" class="form-control" id="exampleInputPassword1">
+            </div>
+            <a class="btn btn-warning" asp-area="" asp-page="/Revisiones/GestionRevision">Ingresar</a>
+          </form>
+    </div>
+ <script>
+ function mostrarInformacion(){
+
+    let elementoUsuario=document.getElementById("idusuario");
+    let usuario=elementoUsuario.value;
+
+    let elementoContrasenia=document.getElementById("idclave");
+    let contrasenia=elementoContrasenia.value;
+
+    if(usuario=="" || contrasenia==""){
+        alert("Erroe en el usuario y/o Contraseña");
+        return;
+    }
+
+    //alert("usuario: "+usuario+", contraseña; "+contrasenia+"/hice clik");
+}
+</script>

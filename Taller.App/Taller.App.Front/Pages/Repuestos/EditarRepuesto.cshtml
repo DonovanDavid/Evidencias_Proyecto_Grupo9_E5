@@ -1,0 +1,47 @@
+﻿@page
+@model Taller.App.Front.Pages.EditarRepuestoModel
+@{
+}
+
+<a class="btn btn-warning" asp-area="" asp-page="/Repuestos/GestionRepuestos">Regresar</a>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Formulario - Editar Repuesto</h5>
+      </div>
+      <form class="px-12" method="POST">
+      <div class="modal-body">
+      
+      <div class="row">
+        <div class="mb-3 col-6">
+        <label for="recipient-name" class="col-form-label">Id Repuesto:</label>
+        <input type="text" class="form-control" placeholder="Ingrese Id Repuesto" aria-label="Username" aria-describedby="basic-addon1" asp-for="@Model.repuestoActual.RepuestoId" name="RepuestoId" readonly>
+        </div>
+        <div class="mb-3 col-6">
+        <label for="recipient-name" class="col-form-label">Descripcion</label>
+        <input type="text" class="form-control" placeholder="" aria-label="Username" aria-describedby="basic-addon1"asp-for="@Model.repuestoActual.descripcion" name="descripcion">
+        </div>
+      </div>
+      <div class="row">
+      <div class="mb-3 col-6">
+        <label for="recipient-name" class="col-form-label">Cantidad</label>
+        <input type="number" class="form-control" placeholder="Ingrese Cantidad" aria-label="Username" aria-describedby="basic-addon1" asp-for="@Model.repuestoActual.cantidad" name="cantidad">
+        </div>
+        <div class="mb-3 col-6">
+        <label for="recipient-name" class="col-form-label">Precio-M/Cte</label>
+        <input type="number" class="form-control" placeholder="Ingrese Precio" aria-label="Username" aria-describedby="basic-addon1" asp-for="@Model.repuestoActual.precio" name="precio">
+        </div>
+       
+    </div>
+    
+
+      <div class="modal-footer">
+        
+        <button type="submit" class="btn btn-primary" asp-page-handler="Edit">Actualizar</button>
+        
+      </div>
+      </form>
+    </div>
+    
+  </div>
+

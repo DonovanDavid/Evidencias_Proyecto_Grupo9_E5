@@ -1,0 +1,15 @@
+{
+  "version": 2,
+  "dgSpecHash": "5Hm42gIAU4hI3PIpg7+sncno5cMcivZkhqDT5Gl/pw4rZQoP5/+YBQBVJ+LPQQqVc/sMOu1xwh+olgChsw3AMg==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\kaká\\Desktop\\proyecto-g9\\Taller.App\\Taller.App.Servicios\\Taller.App.Servicios.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\kaká\\.nuget\\packages\\microsoft.extensions.apidescription.server\\3.0.0\\microsoft.extensions.apidescription.server.3.0.0.nupkg.sha512",
+    "C:\\Users\\kaká\\.nuget\\packages\\microsoft.openapi\\1.2.3\\microsoft.openapi.1.2.3.nupkg.sha512",
+    "C:\\Users\\kaká\\.nuget\\packages\\swashbuckle.aspnetcore\\6.2.3\\swashbuckle.aspnetcore.6.2.3.nupkg.sha512",
+    "C:\\Users\\kaká\\.nuget\\packages\\swashbuckle.aspnetcore.swagger\\6.2.3\\swashbuckle.aspnetcore.swagger.6.2.3.nupkg.sha512",
+    "C:\\Users\\kaká\\.nuget\\packages\\swashbuckle.aspnetcore.swaggergen\\6.2.3\\swashbuckle.aspnetcore.swaggergen.6.2.3.nupkg.sha512",
+    "C:\\Users\\kaká\\.nuget\\packages\\swashbuckle.aspnetcore.swaggerui\\6.2.3\\swashbuckle.aspnetcore.swaggerui.6.2.3.nupkg.sha512"
+  ],
+  "logs": []
+}

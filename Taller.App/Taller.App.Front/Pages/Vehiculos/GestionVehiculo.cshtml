@@ -1,0 +1,210 @@
+﻿@page
+@model Taller.App.Front.Pages.GestionVehiculoModel
+@{
+}
+<h4 id="idTitulo">Gestión Vehiculo</h4>
+ <p>
+ </p>
+ <div class="text-center">
+ <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="">Agregar Nuevo</button>
+</div>
+<div class="d-flex justify-content-end">
+<nav class="navbar navbar-light bg-light">
+ <form method="post" class="form-inline" style="display:flex;">
+    <input name="textBuscar"class="form-control mr-sm-2" type="search" asp-for="@Model.textBuscar" placeholder="Búsqueda Vehículo" aria-label="Ingrese Acá">
+    <button class="btn btn-outline-success my-2 my-sm-0" type="submit" asp-page-handler="Buscar">Filtrar</button>
+  </form>
+</nav>
+</div>
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Placa</th>
+      <th scope="col">Tipo</th>
+      <th scope="col">Marca</th>
+      <th scope="col">Modelo</th>
+       <th scope="col">Tipo</th>
+       <th scope="col">Propietario</th>
+       <th scope="col">Capacidad Kg/PS</th>
+       <th scope="col">Características</th>
+       <th scope="col">Acciones</th>
+    </tr>
+  </thead>
+  <tbody>
+
+ @if(Model.listaVehic != null){
+  @foreach (var m in Model.listaVehic){
+
+    <tr>
+      
+      <td>@m.VehiculoId</td>
+      <td>@m.PlacaVehiculo</td>
+      <td>@m.TipoVehiculo</td>
+      <td>@m.MarcaVehiculo</td>
+      <td>@m.ModeloVehiculo</td>
+       <td>@m.TipoVehiculo</td>
+      <td>@m.PropietarioVehiculo</td>
+      <td>@m.CapacidadVehiculo</td>
+      <td>@m.CaracteristicasVehiculo</td>
+      
+      <td>
+      @if(@Model.vehiculoActual !=null && @Model.vehiculoActual.PlacaVehiculo!="")
+      {
+      <a class="bi bi-pencil-square class-icon-edit" asp-area="" asp-route-id="@m.PlacaVehiculo" asp-page="/Vehiculos/EditarVehiculo"></a>
+      <button type="submit" asp-route-id="@m.VehiculoId" asp-page-handler="Del"  class="bi bi-trash3-fill class-icon-delete" title="eliminar"></button>
+      }else
+      {
+      <form class="px-12" method="POST">
+      <a class="bi bi-pencil-square class-icon-edit" asp-area="" asp-route-id="@m.PlacaVehiculo" asp-page="/Vehiculos/EditarVehiculo"></a>
+      <button type="submit" asp-route-id="@m.VehiculoId" asp-page-handler="Del" class="bi bi-trash3-fill class-icon-delete" title="eliminar"></button>
+      </form>
+      }
+
+      </td>
+    </tr>}
+ }
+  </tbody>
+</table>
+
+
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Formulario -Ingreso Nuevo Vehículo</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <form class="px-12" method="POST">
+      <div class="modal-body">
+      
+      <div class="row">
+        <div class="mb-3 col-4">
+        <label for="recipient-name" class="col-form-label">Designe un Id:</label>
+        <input type="text" class="form-control" placeholder="Ingrese Id Empresarial" aria-label="Username" aria-describedby="basic-addon1" asp-for="@Model.vehiculoActual.VehiculoId" name="VehiculoId">
+        </div>
+        <div class="mb-3 col-4">
+        <label for="recipient-name" class="col-form-label">Placa Vehiculo</label>
+        <input type="text" class="form-control" placeholder="Ingrese Placa" aria-label="Username" aria-describedby="basic-addon1"asp-for="@Model.vehiculoActual.PlacaVehiculo" name="PlacaVehiculo">
+        </div>
+        <div class="mb-3 col-4">
+        <label for="recipient-name" class="col-form-label">Propietario</label>
+        <select class="form-select" id="inputGroupSelect01" asp-for="@Model.vehiculoActual.PropietarioVehiculo" name="PropietarioVehiculo">
+      <option selected>Elegir...</option>
+       @foreach (var m in Model.listaPropietar){
+      <option value="@m.PropietarioId">@m.PropietarioId</option>
+      }
+      </select>
+        
+        </div>
+      </div>
+      <div class="row">
+        <div class="mb-3 col-4">
+       <label for="recipient-name" class="col-form-label">Marca</label>
+       <select class="form-select" id="inputGroupSelect01" asp-for="@Model.vehiculoActual.MarcaVehiculo" name="MarcaVehiculo">
+        <option selected>Elegir...</option>
+        <option value="BMW">BMW </option>
+        <option value="Honda">Honda</option>
+        <option value="Hyundai">Hyundai</option>
+        <option value="Ford">Ford</option>
+        <option value="Toyota">Toyota</option>
+        <option value="Volkswagen">Volkswagen</option>
+        <option value="Suzuki">Suzuki</option>
+        <option value="Mazda">Mazda</option>
+        <option value="Renault">Renault</option>
+        <option value="chevrolet">chevrolet</option>
+      </select>
+      </div>
+      <div class="mb-3 col-4">
+       <label for="recipient-name" class="col-form-label">Linea</label>
+       <select class="form-select" id="inputGroupSelect01" asp-for="@Model.vehiculoActual.LineaVehiculo" name="LineaVehiculo">
+        <option selected>Elegir...</option>
+        <option value="Linea1">Linea1</option>
+        <option value="Linea2">Linea2</option>
+        <option value="Linea3">Linea3</option>
+      </select>
+      </div>
+      <div class="mb-3 col-4">
+        <label for="recipient-name" class="col-form-label">Modelo</label>
+        <input type="number" class="form-control" placeholder="Ingrese Año" aria-label="Username" aria-describedby="basic-addon1"asp-for="@Model.vehiculoActual.ModeloVehiculo" name="ModeloVehiculo">
+        </div>
+    </div>
+     <div class="row">
+      <div class="mb-3 col-4">
+        <label for="recipient-name" class="col-form-label">Color Vehiculo</label>
+        <select class="form-select" id="inputGroupSelect01" asp-for="@Model.vehiculoActual.ColorVehiculo" name="ColorVehiculo">
+        <option selected>Elegir...</option>
+        <option value="Blanco">Blanco</option>
+        <option value="Plateado">Plateado</option>
+        <option value="Negro">Negro</option>
+        <option value="Gris">Gris</option>
+        <option value="Rojo">Rojo</option>
+        <option value="Azul">Azul</option>
+        <option value="Verde">Verde</option>
+      </select>
+        </div>
+        <div class="mb-3 col-4">
+        <label for="recipient-name" class="col-form-label">Motor Vehiculo</label>
+        <input type="text" class="form-control" placeholder="Referencia Motor" aria-label="Username" aria-describedby="basic-addon1" asp-for="@Model.vehiculoActual.MotorVehiculo" name="MotorVehiculo">
+        </div>
+        <div class="mb-3 col-4">
+        <label for="recipient-name" class="col-form-label">Chasis Vehiculo</label>
+        <input type="text" class="form-control" placeholder="Referencia Chasis" aria-label="Username" aria-describedby="basic-addon1" asp-for="@Model.vehiculoActual.ChasisVehiculo" name="ChasisVehiculo">
+        </div>
+    </div>
+    <div class="row">
+      
+        <div class="mb-3 col-6">
+        <label for="recipient-name" class="col-form-label">CapacidadVehiculo Kg/Ps</label>
+        <select class="form-select" id="inputGroupSelect01" asp-for="@Model.vehiculoActual.CapacidadVehiculo" name="CapacidadVehiculo">
+        <option selected>Elegir...</option>
+        <option value="2">2</option>
+        <option value="5">5</option>
+      </select>
+        </div>
+        <div class="mb-3 col-6">
+        <label for="recipient-name" class="col-form-label">Cilindraje Vehiculo</label>
+        <input type="number" class="form-control" placeholder="Cilindraje" aria-label="Username" aria-describedby="basic-addon1" asp-for="@Model.vehiculoActual.CilindrajeVehiculo" name="CilindrajeVehiculo">
+        </div>
+    </div>
+    <div class="row">
+        <div class="mb-3 col-6">
+        <label for="recipient-name" class="col-form-label">Tipo Vehiculo</label>
+         <select class="form-select" id="inputGroupSelect01" asp-for="@Model.vehiculoActual.TipoVehiculo" name="TipoVehiculo">
+        <option selected>Elegir...</option>
+        <option value="Motocicleta ">Motocicleta </option>
+        <option value="Motocarro">Motocarro</option>
+        <option value="Cuatrimoto">Cuatrimoto</option>
+        <option value="Automóvil">Automóvil</option>
+        <option value="Motocarro">Campero</option>
+        <option value="Camioneta">Camioneta</option>
+        <option value="Microbús">Microbús</option>
+      </select>
+        </div>
+        <div class="mb-3 col-6">
+        <label for="recipient-name" class="col-form-label">Ciudad Vehiculo</label>
+         <select class="form-select" id="inputGroupSelect01" asp-for="@Model.vehiculoActual.CiudadVehiculo" name="CiudadVehiculo">
+        <option selected>Elegir...</option>
+        <option value="Paris">Paris</option>
+        <option value="Berlin">Berlin</option>
+        <option value="Tokio">Tokio</option>
+      </select>
+        </div>
+    </div>
+    <div class="row">
+        <div class="mb-3 col-12">
+        <label for="recipient-name" class="col-form-label">Características</label>
+        <input type="text" class="form-control" placeholder="Características" aria-label="Username" aria-describedby="basic-addon1" asp-for="@Model.vehiculoActual.CaracteristicasVehiculo" name="CaracteristicasVehiculo">
+        </div>
+    </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+        <button type="submit" class="btn btn-primary" asp-page-handler="Add">Registrar</button>
+        
+      </div>
+      </form>
+    </div>
+    
+  </div>
+</div>
+  
